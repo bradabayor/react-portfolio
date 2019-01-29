@@ -1,9 +1,33 @@
 import React, { Component } from "react";
 
-class TerminalInput extends Component {
+import { getTerminalDate } from "./helpers.";
+
+class TerminalPrompt extends Component {
+  componentDidMount() {
+    if (this.props.isActive) {
+      this.textInput.focus();
+    }
+  }
   render() {
-    return <input className="terminal__input" type="text" />;
+    return (
+      <div className="terminal__prompt">
+        <p className="terminal__prompt-header">bradabayor@gavin:~$</p>
+        <span
+          contentEditable={this.props.isActive ? true : false}
+          spellCheck="false"
+          className={
+            "terminal__input " + (this.props.isActive ? "active" : "locked")
+          }
+          type="text"
+          onKeyDown={this.props.handleKeyDown}
+          ref={input => {
+            this.textInput = input;
+          }}
+        />
+        <p className="terminal__input-status">{this.props.date}</p>
+      </div>
+    );
   }
 }
 
-export default TerminalInput;
+export default TerminalPrompt;

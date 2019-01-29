@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i");
 
+@keyframes blinking {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: hsla(208, 12%, 85%, 1);
+  }
+}
+
 body {
   font-family: "Ubuntu Mono", monospace;
   font-size: 21px;
@@ -41,20 +51,30 @@ body {
 
     .terminal__input {
       display: inline-block;
-      width: 635px;
       margin: 0 0 0 5px;
+      max-width: 635px;
 
       font-family: "Ubuntu Mono", monospace;
       font-size: 21px;
-      color: hsla(208, 12%, 85%, 1);
+      color: transparent;
+      text-shadow: 0 0 0 hsla(208, 12%, 85%, 1);
+      text-decoration: none;
+      text-overflow: ellipsis;
 
       background-color: hsla(208, 12%, 14%, 1);
       border: none;
-      border-right: 10px solid;
+      border-right: 12px solid;
+
+      animation: blinking 1s step-end infinite;
+      -webkit-flex: 1;
 
       &:focus {
         outline: 0;
       }
+    }
+
+    .locked {
+      border: none;
     }
 
     .terminal__prompt-header {
@@ -69,6 +89,8 @@ body {
       left: 820px;
       display: inline-block;
       margin: 0;
+
+      color: hsla(208, 12%, 85%, 1);
     }
   }
 }
