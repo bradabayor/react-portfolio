@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i");
+
+body {
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 21px;
+  background-color: hsla(0, 0%, 40%, 0.2);
+}
+
+.terminal {
+  display: grid;
+  grid-template-rows: 45px 35px 1fr;
+
+  height: 650px;
+  width: 900px;
+
+  .terminal__status-bar {
+    height: 100%;
+    width: 100%;
+
+    border-radius: 10px 10px 0 0;
+
+    background-color: hsla(208, 12%, 22%, 1);
+  }
+
+  .terminal__window-bar {
+    background-color: hsla(208, 12%, 26%, 1);
+  }
+
+  .terminal__body {
+    padding: 3px;
+    border-radius: 0 0 10px 10px;
+
+    color: hsla(63, 86%, 62%, 1);
+    background-color: hsla(208, 12%, 14%, 1);
+
+    .terminal-prompt {
+      position: relative;
+      margin: auto;
+      width: 100%;
+    }
+
+    .terminal__input {
+      display: inline-block;
+      width: 635px;
+      margin: 0 0 0 5px;
+
+      font-family: "Ubuntu Mono", monospace;
+      font-size: 21px;
+      color: hsla(208, 12%, 85%, 1);
+
+      background-color: hsla(208, 12%, 14%, 1);
+      border: none;
+      border-right: 10px solid;
+
+      &:focus {
+        outline: 0;
+      }
+    }
+
+    .terminal__prompt-header {
+      display: inline-block;
+      margin: 0;
+      background-color: hsla(208, 12%, 20%, 1);
+    }
+
+    .terminal__input-status {
+      position: absolute;
+      width: 100%;
+      left: 820px;
+      display: inline-block;
+      margin: 0;
+    }
+  }
+}
